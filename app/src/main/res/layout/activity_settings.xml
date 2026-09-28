@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DD000000"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="48dp">
+
+    <LinearLayout
+        android:layout_width="560dp"
+        android:layout_height="wrap_content"
+        android:background="#FF1A1A2E"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:elevation="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙ 设置"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="#33FFFFFF" />
+
+        <!-- 网站地址 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="网站地址"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etUrl"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/input_bg"
+            android:hint="https://gimytw.cc/"
+            android:inputType="textUri"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:textSize="16sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:imeOptions="actionDone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="如果网站域名更换，在此修改新地址"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+
+        <!-- 当前版本 -->
+        <TextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="版本：1.0.0"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+
+        <!-- 按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/btn_secondary"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="取消"
+                android:textColor="#AAAAAA"
+                android:textSize="14sp"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/btn_primary"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="保存"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="长按 菜单键 打开此页 ｜ 短按 菜单键 回首页"
+            android:textColor="#444444"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+</LinearLayout>
