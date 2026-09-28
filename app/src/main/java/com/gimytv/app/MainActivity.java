@@ -218,7 +218,6 @@ public class MainActivity extends Activity {
         settings.setAllowFileAccess(true);
 
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        settings.setAppCachePath(getCacheDir().getAbsolutePath());
 
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setLoadWithOverviewMode(true);

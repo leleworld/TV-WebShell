@@ -47,7 +47,7 @@ public class SettingsActivity extends Activity {
         etUrl.setText(currentUrl);
         etUrl.setSelection(currentUrl.length()); // 光标移到末尾
 
-        tvVersion.setText("版本：" + BuildConfig.VERSION_NAME);
+        tvVersion.setText("版本：1.0.0");
 
         // 保存按钮
         btnSave.setOnClickListener(v -> saveAndFinish());
