@@ -3,6 +3,7 @@ name: Build APK
 on:
   push:
     branches: [ main ]
+    tags: [ 'v*' ]
   workflow_dispatch:
 
 jobs:
@@ -32,9 +33,41 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
+    - name: Rename APK
+      run: |
+        VERSION="${GITHUB_REF_NAME:-dev}"
+        cp app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/TV-WebShell-${VERSION}.apk
+
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
       with:
         name: TV-WebShell-debug
-        path: app/build/outputs/apk/debug/*.apk
+        path: app/build/outputs/apk/debug/TV-WebShell-*.apk
         retention-days: 30
+
+    # 仅在推送 tag 时创建 Release
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: app/build/outputs/apk/debug/TV-WebShell-*.apk
+        generate_release_notes: true
+        body: |
+          ## TV-WebShell ${{ github.ref_name }}
+
+          Android TV WebView App - 遥控器D-pad导航适配，可配置网站地址。
+
+          ### 安装方式
+          ```bash
+          adb connect <电视IP>:5555
+          adb install TV-WebShell-${{ github.ref_name }}.apk
+          ```
+
+          ### 遥控器按键
+          | 按键 | 功能 |
+          |------|------|
+          | 方向键 | 焦点导航 |
+          | 确认键 | 点击 |
+          | 返回键 | 后退/退出 |
+          | 短按菜单 | 回首页 |
+          | 长按菜单 | 打开设置 |
