@@ -6,6 +6,9 @@ on:
     tags: [ 'v*' ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,7 +48,6 @@ jobs:
         path: app/build/outputs/apk/debug/TV-WebShell-*.apk
         retention-days: 30
 
-    # 仅在推送 tag 时创建 Release
     - name: Create Release
       if: startsWith(github.ref, 'refs/tags/v')
       uses: softprops/action-gh-release@v2
